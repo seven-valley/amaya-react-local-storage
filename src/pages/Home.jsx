@@ -8,7 +8,7 @@ export default function Login() {
     if(data){
       setAmaya(JSON.parse(data));
     }else{
-      const obj ={client:[],facture:[],excercice:[],devis:[]}
+      const obj ={client:[],facture:[],exercice:[],devis:[]}
       setAmaya(obj);
       localStorage.setItem('amaya',JSON.stringify(obj));
     }

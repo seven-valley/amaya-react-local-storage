@@ -24,8 +24,15 @@ export default function ExerciceModifier() {
     
   const traiter =(data)=>{
     const exercice = {...data,id:id}
-    const indice =amaya.client.indexOf(c => c.id == id);
+    const indice  =amaya.exercice.findIndex(a => a.id == id);
+    //obj =exercice ;
     amaya.exercice[indice] =exercice 
+    console.log('abc');
+    console.log(indice)
+    console.log(amaya)
+    console.log(id)
+
+    //amaya.exercice[indice] = exercice 
     localStorage.setItem('amaya',JSON.stringify(amaya));
     setAmaya({...amaya});
     navigate("/exercice");

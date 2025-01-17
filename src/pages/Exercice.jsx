@@ -70,7 +70,7 @@ export default function Client() {
                     <td>{e.fav}</td>
                     <td>
                       <Link
-                        to={`/exercice-modifier/${client.id}`}
+                        to={`/exercice-modifier/${e.id}`}
                         className="btn btn-primary"
                       >
                         <i className="fa fa-edit"></i>

@@ -9,7 +9,9 @@ export default function FormExercice(props) {
     defaultValues: {
       name:props.exercice.name,
       num:props.exercice.num,
-      tel:props.exercice.year,
+      tel:props.exercice.tel,
+      year:props.exercice.year,
+      fav:props.exercice.fav,
   }});
   const valider = (data) => {
     props.traiter(data);
