@@ -14,17 +14,17 @@ export default function Client() {
   }, []);
 
   const effacer = (indice) => {
-    const nom = amaya.exercice[indice].num;
+    const nom = amaya.facture[indice].num;
     const test = confirm(`Voulez-vous effacer  ${nom} ?`);
     if (test) {
-      amaya.exercice.splice(indice, 1);
+      amaya.facture.splice(indice, 1);
       setAmaya({ ...amaya });
       localStorage.setItem("amaya", JSON.stringify(amaya));
     }
   };
   return (
     <>
-      <Nav active={"exercice"}></Nav>
+      <Nav active={"facture"}></Nav>
       <div className="ps-5 container bg-light h-600">
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb pt-3">
@@ -39,37 +39,38 @@ export default function Client() {
             </li>
 
             <li className="breadcrumb-item active" aria-current="page">
-              Liste des exercices
+              Liste des factures
             </li>
           </ol>
         </nav>
-        <h1>Exercices</h1>
-        <Link to={`/exercice-ajouter`} className="btn btn-success">
+        <h1>Factures</h1>
+        <Link to={`/facture-ajouter`} className="btn btn-success">
           <i className="fa fa-plus"></i>
         </Link>
         <div className="col-6 mt-4">
           <table className="table table-striped">
             <thead>
               <tr>
-                
                 <th> # </th>
+                <th> num </th>
                 <th> Descriptif </th>
-                <th> Année </th>
+                <th> Year </th>
                 <th> Favori </th>
                 <th colSpan="2"> Actions </th>
               </tr>
             </thead>
             <tbody>
-              {amaya.exercice &&
-                amaya.exercice.map((e, indice) => (
+              {amaya.facture &&
+                amaya.facture.map((e, indice) => (
                   <tr key={indice}>
+                    <td>{indice + 1}</td>
                     <td>{e.num}</td>
                     <td>{e.name}</td>
                     <td>{e.year}</td>
                     <td>{e.fav}</td>
                     <td>
                       <Link
-                        to={`/exercice-modifier/${e.id}`}
+                        to={`/facture-modifier/${e.id}`}
                         className="btn btn-primary"
                       >
                         <i className="fa fa-edit"></i>

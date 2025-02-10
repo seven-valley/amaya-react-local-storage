@@ -1,0 +1,1 @@
+   {# ...props.facture.client == client.id && {selected:true #}

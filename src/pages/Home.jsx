@@ -1,29 +1,68 @@
-import { useEffect, useState } from 'react';
-import Nav  from "../components/Nav.jsx";
-import Footer  from "../components/Footer.jsx";
+import { useEffect, useState } from "react";
+import Nav from "../components/Nav.jsx";
+import Footer from "../components/Footer.jsx";
 export default function Login() {
-  const [amaya,setAmaya] = useState({});
+  const [amaya, setAmaya] = useState({});
   useEffect(() => {
-    const data = localStorage.getItem('amaya');
-    if(data){
+    const data = localStorage.getItem("amaya");
+    if (data) {
       setAmaya(JSON.parse(data));
-    }else{
-      const obj ={client:[],facture:[],exercice:[],devis:[]}
+      // defini l'annee en cours
+
+    } else {
+      // Exercice 2024  Du 01 Juillet 2024 au 30 Juin 2025
+      const obj = {
+        client: [
+          {
+            company: "Amazon",
+            shortName: "Amazon",
+            name: "jean-Pierre MORINO",
+            id: 1,
+          },
+          {
+            company: "Microsoft",
+            shortName: "Microsoft",
+            name: "jean-Luc FRANCE",
+            id: 2,
+          },
+          {
+            company: "Apple Store",
+            shortName: "Apple",
+            name: "Jean-Louis AUBERT",
+            id: 3,
+          },
+        ],
+        facture: [],
+        exercice: [
+          {
+            name: "Du 01 Juillet 2024 au 30 Juin 2025",
+            num: "01",
+            year: "2024",
+            fav: 1,
+            id: 1,
+          },
+        ],
+        devis: [],
+      };
       setAmaya(obj);
-      localStorage.setItem('amaya',JSON.stringify(obj));
+      localStorage.setItem("amaya", JSON.stringify(obj));
     }
-  },[])
+  }, []);
   return (
     <>
-     <Nav active={'home'}></Nav>
-     <div className="container bg-light ps-4">
-      <h1 className="mt-5">Dashboard</h1>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi veniam debitis ratione sit, libero, iste voluptatem numquam nam quisquam natus voluptas, cumque voluptatum hic eveniet sapiente dolor accusamus aperiam tenetur.
-     <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
-     <br /> <br /> <br /> <br />  <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
-      
+      <Nav active={"home"}></Nav>
+      <div className="container bg-light ps-4">
+        <h1 className="mt-5">Dashboard</h1>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi veniam
+        debitis ratione sit, libero, iste voluptatem numquam nam quisquam natus
+        voluptas, cumque voluptatum hic eveniet sapiente dolor accusamus aperiam
+        tenetur.
+        <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />{" "}
+        <br /> <br /> <br /> <br /> <br />
+        <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />{" "}
+        <br /> <br />
       </div>
-     <Footer></Footer>
+      <Footer></Footer>
     </>
-  )
+  );
 }

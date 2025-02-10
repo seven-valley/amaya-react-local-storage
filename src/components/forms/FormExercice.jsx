@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useEffect } from 'react';
+
 export default function FormExercice(props) {
   const {
     register,
@@ -9,7 +10,6 @@ export default function FormExercice(props) {
     defaultValues: {
       name:props.exercice.name,
       num:props.exercice.num,
-      tel:props.exercice.tel,
       year:props.exercice.year,
       fav:props.exercice.fav,
   }});
@@ -41,7 +41,7 @@ export default function FormExercice(props) {
           <div className="form-floating mb-3">
             <input
               {...register("num", {
-                required: "Saisir un nom d'entreprise",
+                required: "Saisir le numéro",
               })}
               className="form-control"
               id="num"

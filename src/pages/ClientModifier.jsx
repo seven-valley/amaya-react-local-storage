@@ -23,9 +23,9 @@ export default function ClientModifier() {
     },[])
     
   const traiter =(data)=>{
-    const client = {...data,id:id}
+    const clientM = {...data,id:id}
     const indice =amaya.client.findIndex(c => c.id == id);
-    amaya.client[indice] =client 
+    amaya.client[indice] =clientM 
     localStorage.setItem('amaya',JSON.stringify(amaya));
     setAmaya({...amaya});
     navigate("/client");

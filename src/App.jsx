@@ -7,6 +7,9 @@ import ClientModifier from './pages/ClientModifier'
 import Exercice from './pages/Exercice'
 import ExerciceAjouter from './pages/ExerciceAjouter'
 import ExerciceModifier from './pages/ExerciceModifier'
+import Facture from './pages/Facture'
+import FactureAjouter from './pages/FactureAjouter'
+import FactureModifier from './pages/FactureModifier'
 import Login from './pages/Login'
 import './App.css'
 
@@ -18,6 +21,10 @@ const router = createBrowserRouter([
   {path :"/exercice", element:<Exercice />},
   {path :"/exercice-ajouter", element:<ExerciceAjouter />},
   {path :"/exercice-modifier/:id", element:<ExerciceModifier />},
+  {path :"/facture", element:<Facture />},
+  {path :"/facture-ajouter", element:<FactureAjouter />},
+  {path :"/facture-modifier/:id", element:<FactureModifier />},
+
   {path :"/dashboard", element:<Home />},
 
 ])

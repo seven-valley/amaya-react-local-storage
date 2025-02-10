@@ -36,6 +36,16 @@ export default function Nav(props) {
               </li>
               <li className="nav-item">
                 <Link
+                  to={`/facture`}
+                  className={`nav-link ${
+                    props.active == "facture" ? "active" : ""
+                  }`}
+                >
+                  Factures
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
                   to={`/client`}
                   className={`nav-link ${
                     props.active == "client" ? "active" : ""
