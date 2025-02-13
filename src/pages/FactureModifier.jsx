@@ -15,6 +15,7 @@ export default function factureModifier() {
       const amaya2 = JSON.parse(data);
       setAmaya(amaya2);
       const obj = amaya2.facture.find((c) => c.id == id);
+      console.log('use Effect',obj);
       setFacture(obj);
     } else {
       // redirige
@@ -39,7 +40,7 @@ const ajouterLigne = () => {
   setFacture(facture2);
 }
 const effacer=(indice)=>{
-  console.log('aaa');
+  console.log('ccc');
    console.log(indice);
   const facture2 ={...facture}
   console.log( facture2.lignes[indice]);

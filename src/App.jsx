@@ -10,6 +10,7 @@ import ExerciceModifier from './pages/ExerciceModifier'
 import Facture from './pages/Facture'
 import FactureAjouter from './pages/FactureAjouter'
 import FactureModifier from './pages/FactureModifier'
+import FacturePDF from './pages/FacturePDF'
 import Login from './pages/Login'
 import './App.css'
 
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
   {path :"/facture", element:<Facture />},
   {path :"/facture-ajouter", element:<FactureAjouter />},
   {path :"/facture-modifier/:id", element:<FactureModifier />},
-
+  {path :"/facture-pdf/:id", element:<FacturePDF />},
   {path :"/dashboard", element:<Home />},
 
 ])

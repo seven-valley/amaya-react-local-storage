@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import LigneFacture from "./LigneFacture.jsx";
+import { Link } from "react-router-dom";
 import "./Formfacture.css";
 export default function FormFacture(props) {
   const [clients, setClients] = useState([]);
@@ -49,14 +50,14 @@ export default function FormFacture(props) {
     <>
       <form onSubmit={handleSubmit(valider)}>
         <div className="text-end">
-          <button
-            className="my-4 btn btn-danger"
-            data-placement="right"
-            target="blank"
-            title="PDF"
-          >
-            <i className="fas fa-file-pdf "></i>
-          </button>
+         
+          <Link
+          target="blank"
+                        to={`/facture-pdf/${props.facture.id}`}
+                        className="my-4 btn btn-danger"
+                      >
+         <i className="fas fa-file-pdf "></i>
+          </Link>
           <br />
           <button type="submit" className="btn btn-success mb-4">
             Valider
