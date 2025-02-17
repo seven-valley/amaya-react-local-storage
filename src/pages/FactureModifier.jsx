@@ -1,53 +1,91 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Nav from "../components/Nav.jsx";
 import Footer from "../components/Footer.jsx";
 import Formfacture from "../components/forms/FormFacture.jsx";
 import { Link } from "react-router-dom";
 import { useParams, useNavigate } from "react-router-dom";
+import Ligne from "../models/Ligne";
+import {useFactureStore } from './FactureStore.js'
+
 export default function factureModifier() {
   const navigate = useNavigate();
   const { id } = useParams();
   const [facture, setFacture] = useState({});
+ 
+  const ht = useFactureStore((state) => state.ht)
+  const ttc = useFactureStore((state) => state.ttc)
+  const tva = useFactureStore((state) => state.tva)
+  const lignes = useFactureStore((state) => state.lignes)
+  const updateHT = useFactureStore((state) => state.updateHT)
+  const updateLignes = useFactureStore((state) => state.updateLignes)
+  
   const [amaya, setAmaya] = useState({});
+
   useEffect(() => {
     const data = localStorage.getItem("amaya");
     if (data) {
       const amaya2 = JSON.parse(data);
       setAmaya(amaya2);
       const obj = amaya2.facture.find((c) => c.id == id);
-      console.log('use Effect',obj);
+      console.log("use Effect", obj);
       setFacture(obj);
+      updateHT(obj.ht);
+      updateLignes(obj.lignes)
+     
+      
     } else {
       // redirige
     }
   }, []);
 
   const traiter = (data) => {
-    const factureM = { ...data, id: new Date().getTime(),lignes:facture.lignes };
+    const factureM = {
+      ...data,
+      id: new Date().getTime(),
+      lignes: lignes,
+      ht: ht
+    };
     const indice = amaya.facture.findIndex((a) => a.id == id);
     amaya.facture[indice] = factureM;
     localStorage.setItem("amaya", JSON.stringify(amaya));
     navigate("/facture");
   };
-  const traiterLigne = (indice,ligne) => {
-    const facture2 ={...facture}
-  facture2.lignes[indice] = ligne;
-  setFacture(facture2);
-  }
-const ajouterLigne = () => {
-  const facture2 ={...facture}
-  facture2.lignes.push({ligne1:'',ligne2:'',ligne3:'',prix:'',qt:'',total:''});
-  setFacture(facture2);
-}
-const effacer=(indice)=>{
-  console.log('ccc');
-   console.log(indice);
-  const facture2 ={...facture}
-  console.log( facture2.lignes[indice]);
-  facture2.lignes.splice(indice,1);
-  console.log(facture2);
-  setFacture(facture2);
-}
+  // const traiterLigne = (indice, ligne) => {
+  //   console.log("traiter");
+
+  //   lignes[indice] = ligne;
+  //   let totalCalculer = 0;
+  //   lignes.current.map((l) => {
+  //     if (l.total.length > 0) {
+  //       totalCalculer += parseFloat(l.total);
+  //     }
+  //   });
+  //   const total2 = {};
+  //   total2.ht = parseFloat(totalCalculer).toFixed(2);
+  //   total2.ttc = parseFloat(totalCalculer) * 1.2;
+  //   total2.tva = parseFloat(totalCalculer) * 0.2;
+  //   setTotal(total2);
+  // };
+  const ajouterLigne = () => {
+    const facture2 = { ...facture };
+    facture2.lignes =lignes
+    if (facture2.lignes.length < 4) {
+      facture2.lignes.push(new Ligne());
+      setFacture(facture2);
+    } else {
+      alert("4 lignes maximum");
+    }
+  };
+  const effacer = (indice) => {
+    const facture2 = { ...facture };
+    facture2.lignes =lignes
+    if (facture2.lignes.length > 1) {
+      facture2.lignes.splice(indice, 1);
+      setFacture(facture2);
+    } else {
+      alert("Il faut au moins une ligne");
+    }
+  };
   return (
     <>
       <Nav active={"facture"}></Nav>
@@ -71,12 +109,30 @@ const effacer=(indice)=>{
         </nav>
 
         <h1 className="py-2">Modifier une facture</h1>
-
+        <section className="col-12">
+          <div className="row mt-2 bg-gris p-2">
+            <div className="col-4">
+              <h4>{ht} &euro; HT</h4>
+            </div>
+            <div className="col-4">
+              <h4>
+                <span className="text-success">
+                  {tva} &euro; TVA
+                </span>
+              </h4>
+            </div>
+            <div className="col-4 text-end">
+              <h4>
+                <span className="">{ttc} &euro; TTC</span>
+              </h4>
+            </div>
+          </div>
+        </section>
         {facture.id && (
           <Formfacture
             facture={facture}
             traiter={traiter}
-            traiterLigne={traiterLigne}
+           
             ajouter={ajouterLigne}
             effacer={effacer}
           />

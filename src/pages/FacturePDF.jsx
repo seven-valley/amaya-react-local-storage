@@ -11,19 +11,23 @@ export default function facturePDF() {
   const navigate = useNavigate();
   const { id } = useParams();
   const [facture, setFacture] = useState({});
+  const [client, setClient] = useState({});
 
   useEffect(() => {
     const data = localStorage.getItem("amaya");
     if (data) {
       const amaya2 = JSON.parse(data);
-      const obj = amaya2.facture.find((c) => c.id == id);
+      const obj = amaya2.facture.find((f) => f.id == id);
+      const cl = amaya2.client.find((c) => c.id == obj.client);
       setFacture(obj);
+      setClient(cl);
     } else {
       // redirige
     }
   }, []);
 const generatePDF=()=>{
-  myFacturePdf();
+
+  myFacturePdf(facture,client);
 }
   return (
     <>

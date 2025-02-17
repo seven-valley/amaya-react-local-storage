@@ -1,10 +1,12 @@
 import { useForm } from "react-hook-form";
-import { useEffect, useState } from "react";
+import { useEffect,  useState,memo } from "react";
 import LigneFacture from "./LigneFacture.jsx";
 import { Link } from "react-router-dom";
 import "./Formfacture.css";
-export default function FormFacture(props) {
+
+const FormFacture = memo(function FormFacture(props) {
   const [clients, setClients] = useState([]);
+
   useEffect(() => {
     const data = localStorage.getItem("amaya");
     if (data) {
@@ -14,9 +16,7 @@ export default function FormFacture(props) {
     }
    
   }, []);
-  const ht = 1000;
-  const tva = 200;
-  const ttc = 1200;
+  
   const {
     register,
     handleSubmit,
@@ -35,9 +35,7 @@ export default function FormFacture(props) {
   const valider = (data) => {
     props.traiter(data);
   };
-  const traiterLigne = (indice,ligne) => {
-    props.traiterLigne(indice,ligne);
-  }
+
   const ajouter = () => {
     props.ajouter();
   };
@@ -64,21 +62,7 @@ export default function FormFacture(props) {
           </button>
         </div>
         <section className="col-12">
-          <div className="row mt-2 bg-gris p-2">
-            <div className="col-4">
-              <h4>{ht} &euro; HT</h4>
-            </div>
-            <div className="col-4">
-              <h4>
-                <span className="text-success">{tva} &euro; TVA</span>
-              </h4>
-            </div>
-            <div className="col-4 text-end">
-              <h4>
-                <span className="">{ttc} &euro; TTC</span>
-              </h4>
-            </div>
-          </div>
+         
           <div className="row mt-1">
             <div className="col-12 pt-2 gris">
               <div className="row h80">
@@ -194,10 +178,18 @@ export default function FormFacture(props) {
           </div>
         </section>
       </form>
-     { props.facture.lignes.map ((ligne,indice)=>(<LigneFacture key={indice} ligne={ligne} indice={indice} traiterLigne={traiterLigne} effacer={effacer} />)) }
+
+     { props.facture.lignes.map ((ligne,indice)=>(
+      <LigneFacture 
+     key={`id ${Math.random().toString(16).slice(2)}`} 
+      //key={ligne.id} 
+      ligne={ligne} 
+      indice={indice} 
+      effacer={effacer} />)) }
       <div className="col-12 mt-1 text-center">
           <button onClick={ajouter} className="mt-4 btn btn-success"><i className="fas fa-plus"></i></button>
         </div>
     </>
   );
-}
+})
+export default  FormFacture;
