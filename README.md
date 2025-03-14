@@ -27,9 +27,10 @@ Il serait aussi opportaint de verifier le total de toute les facture pour vérif
 :one: Valider et "bloquer" une facture pour afficher le PDF  
   
 :two: Sécuriser la modification de facture
-_Empécher de modifier une facture déjà validé_
-  
+_Empécher de modifier une facture déjà validé_*
+
 :three: Sécuriser la suppression d'une facture
 _Empécher de supprimer une facture validé_
 _Vérifier la cohérence de toutes les factures_
+
 -------------------
