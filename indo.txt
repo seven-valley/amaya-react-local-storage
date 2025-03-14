@@ -1,0 +1,19 @@
+   {# ...props.facture.client == client.id && {selected:true #}
+
+
+npm i auto table
+
+import autoTable from 'jspdf-autotable'
+
+    autoTable(pdf, {
+    startY:192,
+    tableWidth:24,
+    margin: {
+      left: 153,
+    },
+    // fillColor:false 
+    body: [
+      [{ content: formatNumber(ttc),  styles: { font:'OpenSans-Bold', halign: 'right' ,textColor:'#000000',fillColor:false  } }],
+    ],
+   
+  })
