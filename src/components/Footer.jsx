@@ -1,4 +1,6 @@
 import logo from '../assets/logo-sevenvalley.webp'
+import './Footer.css'
+
 export default function Footer() {
     return (
       <>

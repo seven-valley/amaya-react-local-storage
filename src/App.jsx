@@ -13,12 +13,15 @@ import FactureModifier from './pages/FactureModifier'
 import FacturePDF from './pages/FacturePDF'
 import Login from './pages/Login'
 import './App.css'
+import Article from './pages/Article'
+import Footer from './components/Footer'
 
 const router = createBrowserRouter([
   {path :"/", element:<Login />},
   {path :"/client", element:<Client />},
   {path :"/client-ajouter", element:<ClientAjouter />},
   {path :"/client-modifier/:id", element:<ClientModifier />},
+  {path :"/article", element:<Article />},
   {path :"/exercice", element:<Exercice />},
   {path :"/exercice-ajouter", element:<ExerciceAjouter />},
   {path :"/exercice-modifier/:id", element:<ExerciceModifier />},
@@ -36,6 +39,7 @@ export default function App() {
       <RouterProvider 
  
       router={router}></RouterProvider>
+      <Footer></Footer>
     </>
   )
 }

@@ -57,7 +57,6 @@ export default function ExerciceModifier() {
 
         {exercice.id && <FormExercice traiter={traiter} exercice={exercice} />}
       </div>
-      <Footer></Footer>
     </>
   );
 }

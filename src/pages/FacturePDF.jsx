@@ -35,7 +35,7 @@ const generatePDF=()=>{
       
         <h1>{id}</h1>
         <button onClick={generatePDF}>PDF</button>
-      <Footer></Footer>
+      
     </>
   );
 }

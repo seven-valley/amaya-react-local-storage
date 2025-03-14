@@ -4,11 +4,15 @@ import Footer  from "../components/Footer.jsx";
 import FormClient  from "../components/forms/FormClient.jsx";
 import { Link } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom'
+
 export default function ClientModifier() {
+
   const navigate = useNavigate();
   const {id} = useParams();
   const [client, setClient] = useState({});
   const [amaya, setAmaya] = useState({});
+
+
   useEffect(() => {
       const data = localStorage.getItem('amaya');
       if(data){
@@ -59,7 +63,6 @@ export default function ClientModifier() {
  }
        
       </div>
-     <Footer></Footer>
     </>
   )
 }
