@@ -57,7 +57,7 @@ export default function ClientAjouter() {
      
        
       </div>
-     <Footer></Footer>
+    
     </>
   )
 }

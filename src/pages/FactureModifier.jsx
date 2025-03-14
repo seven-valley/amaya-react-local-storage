@@ -150,7 +150,6 @@ const generatePDF=()=>{
           />
         )}
       </div>
-      <Footer></Footer>
     </>
   );
 }

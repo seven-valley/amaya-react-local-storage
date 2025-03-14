@@ -77,7 +77,6 @@ export default function Login() {
         <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />{" "}
         <br /> <br />
       </div>
-      <Footer></Footer>
     </>
   );
 }
