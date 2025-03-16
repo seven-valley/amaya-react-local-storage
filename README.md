@@ -4,7 +4,7 @@
 <br>
 <img src="./img-readme/screen-3.png" width="300">
 
-Amaya Facture vous permet de :
+Amaya Facture vous permet de :  
 :one: Créer des factures  
 :two: Créer des clients (pour les associer aux factures)  
 :three: Créer exercice comptable (l'année en cours de facturation)    
