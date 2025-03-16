@@ -1,4 +1,9 @@
 # Présentation de Amaya Facture
+<img src="./img-readme/screen-1.png" width="600">  <img src="./img-readme/screen-2.png" width="600"> 
+<br>
+<br>
+<img src="./img-readme/screen-3.png" width="600">
+
 Amaya Facture vous permet de :
 :one: Créer des factures  
 :two: Créer des clients (pour les associer aux factures)  
@@ -7,6 +12,7 @@ _la liste des factures s'affiche en fonction de l'excercice comptable(année par
 
 # Cahier des charges
 ## Qu'est ce qui est déjà fait ?
+
 :one::white_check_mark: Création et modification d'un excercice comptable  
 :two::white_check_mark: Création et modification d'un client  
 :three::white_check_mark: Création et modification d'une facture  
