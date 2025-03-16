@@ -1,8 +1,8 @@
 # Présentation de Amaya Facture
-<img src="./img-readme/screen-1.png" width="600">  <img src="./img-readme/screen-2.png" width="600"> 
+<img src="./img-readme/screen-1.png" width="300">  <img src="./img-readme/screen-2.png" width="300"> 
 <br>
 <br>
-<img src="./img-readme/screen-3.png" width="600">
+<img src="./img-readme/screen-3.png" width="300">
 
 Amaya Facture vous permet de :
 :one: Créer des factures  
