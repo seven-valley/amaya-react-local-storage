@@ -1,4 +1,13 @@
-# vidéo
+# Installation
+```
+npm install
+```
+
+```
+npm run dev
+```
+
+# Les vidéo
 
 vidéo de présentaion :
 https://youtube.com/shorts/OJXPV9zs1GU
