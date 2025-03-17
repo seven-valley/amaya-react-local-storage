@@ -87,7 +87,7 @@ export default function Client() {
           </table>
         </div>
       </div>
-      <Footer></Footer>
+      
     </>
   );
 }
