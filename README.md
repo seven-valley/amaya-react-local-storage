@@ -7,7 +7,7 @@ npm install
 npm run dev
 ```
 
-# Les vidéo
+# Les vidéos
 
 vidéo de présentaion :
 https://youtube.com/shorts/OJXPV9zs1GU
