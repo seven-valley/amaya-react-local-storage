@@ -1,3 +1,12 @@
+# vidéo
+
+vidéo de présentaion :
+https://youtube.com/shorts/OJXPV9zs1GU
+
+vidéo  de lancement
+https://youtube.com/shorts/nfHMdeybLf0?feature=share  
+
+
 # Présentation de Amaya Facture
 <img src="./img-readme/screen-1.png" width="300">  <img src="./img-readme/screen-2.png" width="300"> 
 <br>
